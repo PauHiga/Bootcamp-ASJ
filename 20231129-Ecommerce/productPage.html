@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Los cupcakes más alegres y deliciosos para regalar y regalarse">
+        <title>Cupcake Store</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="header-top">
+                <a href="index.html">
+                    <h1>Cupcake Store</h1>
+                </a>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="">Shop</a>
+                    <select name="combos" id="combos">
+                        <option selected hidden>Combos</option>
+                        <option value="1">Arcoiris</option>
+                        <option value="2">Otoño</option>
+                        <option value="3">Feliz cumpleaños</option>
+                    </select>
+                    <a href="">Contacto</a>
+                    <a href="cart.html">Carrito</a>
+                </nav>
+            </div>
+            <div class="header-bottom">
+                <div>
+                    <a class="caps" href="index.html"><strong>Productos</strong></a> <span> → Vainilla Y Frutilla Cupcakes</span>
+                </div>
+
+                <div class="contenedorSearch">
+                    <input type="text" class="search" placeholder="Search..."><label for=""></label><button>
+                    <img src="./Images/glass.png" alt="icono lupa" class="iconoLupa">
+                </button>
+                </div>
+                    <select name="priceList" id="priceList">
+                        <option selected hidden>Lista de Precios</option>
+                        <option value="1">Vainilla</option>
+                        <option value="2">Frutilla</option>
+                        <option value="3">Chocolate</option>
+                    </select>
+
+            </div>
+        </header>
+        <main class="presentacionProducto">
+            <img src="./Images/01.png" alt="producto">
+            <div class="descripcionProducto">
+                <h2>Vanilla y Frutilla</h2>
+                <h3><strong>$</strong> 120</h3>
+                <div class="selectorCantidad">
+                    <button class="botonCambiarCantidad">-</button><input class="search inputCantidad" type="number" width=10 value="1"><button class="botonCambiarCantidad">+</button>
+                </div>
+                <a href="cart.html"><button class="anadirCarrito">Añadir al carrito</button></a>
+                <hr>
+                <p>Nuestros cupcakes de vainilla y frutilla son una delicia para el paladar. Son suaves, esponjosos y cremosos, con un sabor dulce y delicado. </p>
+                <hr>
+                <p>Se pueden conservar hasta 3 días en heladera o hasta 1 mes en el congelador. Se recomienda sacarlos del refrigerador unos 15 minutos antes de consumirlos, para que estén a temperatura ambiente. </p>
+            </div>
+        </main>
+    </body>
+</html>

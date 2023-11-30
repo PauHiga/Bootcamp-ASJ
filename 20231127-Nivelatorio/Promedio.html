@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio</title>
+    <script>
+        let alumnos = [
+        {
+            nombre: "Mariano Damian",
+            apellido: "Hernandez",
+            notas: [8, 7, 9, 10, 6],
+        },
+        {
+            nombre: "Ramiro",
+            apellido: "Diaz",
+            notas: [1, 3, 8, 2, 1],
+        },
+        {
+            nombre: "Ana",
+            apellido: "Armella",
+            notas: [5, 7, 9, 4, 2],
+        },
+        {
+            nombre: "Romina",
+            apellido: "Almeda",
+            notas: [10, 6, 7, 5, 9],
+        },
+        {
+            nombre: "Denis",
+            apellido: "Tolaba",
+            notas: [10, 10, 9, 9, 10],
+        },
+        {
+            nombre: "Hugo",
+            apellido: "Castellano",
+            notas: [2, 3, 3, 6, 1],
+        },
+        {
+            nombre: "Analia Daiana",
+            apellido: "Fonseca",
+            notas: [4, 3, 4, 5, 2],
+        },
+        {
+            nombre: "Francisco Daniel",
+            apellido: "Samir",
+            notas: [5, 5, 6, 4, 2],
+        },
+        ];
+
+        function promedio(alumnos, mensaje) {
+            let aprobados = []
+            alumnos.forEach(alumno => {
+                const sumaNOtas = alumno.notas.reduce((acumulador, valorActual) => acumulador + valorActual, 0);
+                const promedio = sumaNOtas/alumno.notas.length;
+                if(promedio >=6){
+                    aprobados.push({
+                        nombreCompleto: alumno.nombre + " " + alumno.apellido,
+                        promedio: promedio,
+                        estado: mensaje
+                    })
+                }
+            });
+            console.log(aprobados)
+        }
+
+        promedio(alumnos, "Aprobado")
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

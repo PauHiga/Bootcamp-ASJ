@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop While - Ejercicio 2</title>
+</head>
+<body>
+    <h1>
+        Contador De Positivos
+    </h1>
+
+    <p>
+        En este ejercicio deberás crear un programa que le pida al usuario que ingrese un número entero. El programa terminará cuando se ingrese un número negativo.
+        Al terminar, mostrarle un mensaje con la cantidad de números positivos que ingresó.
+    </p>
+
+
+    <script>
+        let input = 1;
+        let numerosPositivos = 0;
+
+        while(!(input < 0)){
+        input = Number(prompt("Ingrese un número"));
+        
+        if(isNaN(Number(input))){
+            alert("El valor ingresado no es un número")
+        } else if(input>0){
+            numerosPositivos++
+        }    
+    }
+    alert(`Los numeros positivos ingresados fueron: ${numerosPositivos}`)
+
+    </script>
+</body>
+</html>

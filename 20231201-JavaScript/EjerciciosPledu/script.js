@@ -1,3 +1,18 @@
+// --------------------------HELPERS---------------------------------------------
+
+const getANumber = (message) => {
+    while(true){
+        let textCaracteres = prompt(message)    
+        if (!isNaN(textCaracteres) && textCaracteres.trim() != ''){
+            return textCaracteres;
+        } else {
+            alert('Ingrese un número válido');
+        }
+    }
+}
+
+//----------------------------------------------------------------------------------
+
 // Cantidad de caracteres
 // Pedile al usuario que ingrese un texto breve. Guardá su input.
 // Mostrá por consola cuántos caracteres tiene el input.
@@ -23,7 +38,7 @@ const calculadoraEdad = (texto) => {
     return resultado;
 } 
 
-let textoEdad = prompt("Ingrese su edad")
+let textoEdad = getANumber("Ingrese su edad")
 const dias = calculadoraEdad(textoEdad);
 
 alert(`Dias de edad: ${dias}`)
@@ -38,8 +53,8 @@ alert(`Dias de edad: ${dias}`)
 // Pedile al usuario que le asigne un valor a num1 y num2. La Variable resultado deberá ser la suma entre num1 y num2.
 // Mostrá por consola el valor de resultado.
 
-const num1 = prompt("Ingrese un número")
-const num2 = prompt("Ingrese un segundo número")
+const num1 = getANumber("Ingrese un número")
+const num2 = getANumber("Ingrese un segundo número")
 
 const suma = parseInt(num1) + parseInt(num2);
 
@@ -56,8 +71,8 @@ const PrecioPorUnidad = 15;
 
 const papasPorVida = (edadMax - edad)*365*papasPorDia;
 
-alert(`Necesitarás ${papasPorVida} snacks para que te alcancen hasta los ${edadMax} años.`)
-alert(`Y costarán ${papasPorVida * PrecioPorUnidad}`)
+console.log(`Necesitarás ${papasPorVida} snacks para que te alcancen hasta los ${edadMax} años.`)
+console.log(`Y costarán ${papasPorVida * PrecioPorUnidad}`)
 
 // -----------------------------------------------------------------------
 // Calculador de abastecimiento de por vida 2
@@ -66,7 +81,7 @@ const diasDeViaje = 7
 const presupuestoMax = 100000
 const comida = 4 * diasDeViaje
 
-alert(`Podés gastar ${presupuestoMax/comida} en cada comida para que te alcance la plata durante los ${diasDeViaje} días de viaje`)
+console.log(`Podés gastar ${presupuestoMax/comida} en cada comida para que te alcance la plata durante los ${diasDeViaje} días de viaje`)
 
 // -----------------------------------------------------------------------
 // Ejercicios ES6 Ejercicio 2
@@ -79,11 +94,10 @@ console.log(`${nombre} es ${profesion}`);
 // -----------------------------------------------------------------------
 // Ejercicios ES6 Ejercicio 1
 
-let precio = parseInt(prompt("Ingrese el precio"))
-let cantidad = parseInt(prompt("Ingrese la cantidad"))
+let precio = parseInt(getANumber("Ingrese el precio"))
+let cantidad = parseInt(getANumber("Ingrese la cantidad"))
 
-console.log(`Lleva ${cantidad} a ${precio} = debe abonar ${precio*cantidad}`);  
+alert(`Lleva ${cantidad} a ${precio} = debe abonar ${precio*cantidad}`);  
 
 
 
-// -----------------------------------------------------------------------

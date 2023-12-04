@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch - Ejercicio 1</title>
+</head>
+<body>
+    <h1>Switch - Ejercicio 1</h1>
+
+    <script>
+        let input = prompt("Introduzca la palabra").toLowerCase();
+
+        switch(input){
+            case "casa":
+                alert("house");
+                break;
+            case "perro":
+                alert("dog");
+                break;
+            case "pelota":
+                alert("ball");
+                break;
+            case "árbol":
+            case "arbol":
+                alert("tree");
+                break;
+            case "genio":
+                alert("genius");
+                break;
+            default:
+                alert("La palabra ingresada es incorrecta.");
+                break;
+        }
+    </script>
+</body>
+</html>

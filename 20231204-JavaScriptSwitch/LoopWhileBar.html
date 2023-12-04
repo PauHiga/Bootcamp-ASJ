@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Bot</title>
+</head>
+<body>
+    <h1>
+        Bar Bot
+    </h1>
+
+    <script>
+        let input = prompt("Bienvenido! Que desea pedir hoy? Seleccione la opción \n1- Un cafe - $100\n2- Un tostado - $200 \n3- Una porción de torta $300\n\n4- Contame un chiste\n\n0- Salir")
+        let cuenta = 0;
+        let chisteUno = true;
+        let mozoBot = true;
+
+        while(mozoBot){
+            switch(input){
+                case "1":
+                    cuenta += 100;
+                    alert(`Pidió un café. La cuenta actual es: ${cuenta}`)
+                    break;
+                case "2":
+                    cuenta += 200;
+                    alert(`Pidió un tostado. La cuenta actual es: ${cuenta}`)
+                    break;
+                case "3":
+                    cuenta += 300;
+                    alert(`Pidió una porción de torta. La cuenta actual es: ${cuenta}`)
+                    break;
+                case "4":
+                    if(chisteUno){
+                        alert("- Camarero, ¡hay una mosca en mi sopa!\n- No se preocupe, señor, la araña que está en su pan se ocupará de ella.")
+                        chisteUno = false;
+                    } else {
+                        alert("Un señor va a un bar y le dice al camarero: -Un café solo por favor. \nY el camarero dice: -¡Todo el mundo fuera!")
+                    }
+                    break;
+                case "0":
+                    mozoBot = false;
+                    break;
+                default:
+                    alert("Por favor elija una opción válida")
+
+            };
+            if(mozoBot){
+                input = prompt("Desea pedir algo más? Seleccione la opción \n1- Un cafe - $100\n2- Un tostado - $200 \n3- Una porción de torta $300\n\n4- Contame un chiste\n\n0- Pedir la cuenta")
+            }
+        }
+
+        if(input == 0){
+            let propina = confirm(`La cuenta es: ${cuenta}. Desea agregar propina?`)
+            if(propina){      
+                let propinaPorcentaje = prompt("Que porcentaje desea dejar como propina?")
+                while(isNaN(Number(propinaPorcentaje)) || Number(propinaPorcentaje)<0){
+                    propinaPorcentaje = prompt("Por favor introduzca un número válido!")
+                }
+                cuenta = cuenta + cuenta*propinaPorcentaje/100;
+            } 
+            alert(`El total a pagar es: ${cuenta.toFixed(2)}. Que tenga un buen dia!`)
+        } else {
+            alert("Que tenga un buen dia!")
+        }
+
+    </script>
+</body>
+</html>

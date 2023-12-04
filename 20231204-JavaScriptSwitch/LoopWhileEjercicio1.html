@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop While - Ejercicio 1</title>
+</head>
+<body>
+
+    <h1>
+        Ejercicio 1 loop while
+    </h1>
+    
+    <p>
+        Que ingrese un numero, y en base a dicho numero, sumatoria de todos los numeros HASTA ese numero.
+        Mostrar promedio
+    </p>
+    <p>
+        Extra: validar que lo ingresado sea un numero, en caso contrario, mostrar un alert avisando que el valor no es válido.
+    </p>
+
+    <script>
+        let input = Number(prompt("Ingrese un número"));
+        
+        if(isNaN(Number(input))){
+            alert("El valor ingresado no es un número")
+        } else{
+            let numeroActual = input;
+            let suma = 0;
+            
+            while(input != 0){
+                suma += input--;
+            }
+    
+            alert((suma/numeroActual).toFixed(2))
+        }
+        
+        
+    </script>
+</body>
+</html>

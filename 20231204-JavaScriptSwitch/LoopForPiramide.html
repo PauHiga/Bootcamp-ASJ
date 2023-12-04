@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piramide</title>
+</head>
+<body>
+    <h1>Piramide</h1>
+
+    <script>
+        let input;
+
+        while(true){
+            input = prompt ("ingrese el numero");
+            if(isNaN((input)) || input <0){
+                alert("Ingrese un número válido")
+            }
+            else{
+                break;
+            }
+        }
+        
+        for(i=1; i<=input;i++){
+            let estrellas = "";
+            for(j=1; j<=i; j++){
+                estrellas += "*";
+            }
+            console.log(estrellas);
+        }
+
+        for(i=input-1; i>=1;i--){
+            estrellas = "";
+            for(j=1; j<=i; j++){
+                estrellas += "*";
+            }
+            console.log(estrellas);
+        }
+
+    </script>
+</body>
+</html>

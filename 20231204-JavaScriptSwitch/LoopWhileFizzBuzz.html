@@ -27,7 +27,7 @@
                 console.log('FizzBuzz');                
             } else if(numero%3 == 0){
                 console.log('Fizz');                
-            } else if(numero%5 == 0){
+            } else if(!(numero%5)){    //esta comparación funciona también (no funciona en typescript). No olvidar los paréntesis, o JS resuelve primero el ! y da siempre falso
                 console.log('Buzz');                                
             } else {
                 console.log(numero);                

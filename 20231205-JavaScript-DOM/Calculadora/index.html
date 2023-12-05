@@ -9,73 +9,71 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container w-50">
-        <div class="grid">
-            <div class="row">
+    
+    <div class="container m-5 d-flex flex-column align-items-center">
+        <h1>Calculadora Bootcamp</h1>
+        <div class=".container-sm w-25 m-3">
+            <div class="row g-0">
                 <div class="col-4">
-                    <button id="boton1" value="1">1</button>
+                    <button class="botonTeclado" id="boton1" value="1">1</button>
                 </div>
                 <div class="col-4">
-                    <button id="boton2" value="2" >2</button>
+                    <button class="botonTeclado" id="boton2" value="2" >2</button>
                 </div>
                 <div class="col-4">
-                    <button id="boton3" value="3" >3</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <button id="boton4" value="4" >4</button>
-                </div>
-                <div class="col-4">
-                    <button id="boton5" value="5" >5</button>
-                </div>
-                <div class="col-4">
-                    <button id="boton6" value="6" >6</button>
+                    <button class="botonTeclado" id="boton3" value="3" >3</button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-0">
                 <div class="col-4">
-                    <button id="boton7" value="7" >7</button>
+                    <button class="botonTeclado" id="boton4" value="4" >4</button>
                 </div>
                 <div class="col-4">
-                    <button id="boton8" value="8" >8</button>
+                    <button class="botonTeclado" id="boton5" value="5" >5</button>
                 </div>
                 <div class="col-4">
-                    <button id="boton9" value="9" >9</button>
+                    <button class="botonTeclado" id="boton6" value="6" >6</button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-0">
                 <div class="col-4">
-                    <button id="boton0" value="0">0</button>
+                    <button class="botonTeclado" id="boton7" value="7" >7</button>
+                </div>
+                <div class="col-4">
+                    <button class="botonTeclado" id="boton8" value="8" >8</button>
+                </div>
+                <div class="col-4">
+                    <button class="botonTeclado" id="boton9" value="9" >9</button>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-4">
+                    <button class="botonTeclado" id="boton0" value="0">0</button>
                 </div>
                 <div class="col-8">
-                    <button id="botonborrar">Borrar</button>
+                    <button class="botonTeclado" id="botonborrar">Borrar</button>
                     
                 </div>
             </div>
-            <div class="row">
-                <div class="col-3">
-                    <button id="botonsuma">+</button>
+            <div class="row g-0">
+                <div class="col-3 botonOperacion">
+                    <button id="+">+</button>
                 </div>
-                <div class="col-3">
-                    <button id="botonresta">-</button>
+                <div class="botonOperacion col-3">
+                    <button id="-">-</button>
                 </div>
-                <div class="col-3">
-                    <button id="botonmul">x</button>
+                <div class="botonOperacion col-3">
+                    <button id="*">x</button>
                 </div>
-                <div class="col-3">
-                    <button id="botondiv">/</button>
+                <div class="botonOperacion col-3">
+                    <button id="/">/</button>
                 </div>
             </div>
-                     
+            <button id="botonigual">=</button>
+            <p id="operaciones"></h2>
+            <h2 id="display"></h2>
         </div>
-     
-        <button id="botonigual">=</button>
-        
-        <h2 id="display" class="border-2 "></h2>
-        
     </div>
-        
-        <script src="./script.js"></script>
-    </body>
+    <script src="./script.js"></script>
+</body>
 </html>

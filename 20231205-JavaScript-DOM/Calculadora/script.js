@@ -1,120 +1,59 @@
-let boton1 =  document.getElementById("boton1")
-let boton2 =  document.getElementById("boton2")
-let boton3 =  document.getElementById("boton3")
-let boton4 =  document.getElementById("boton4")
-let boton5 =  document.getElementById("boton5")
-let boton6 =  document.getElementById("boton6")
-let boton7 =  document.getElementById("boton7")
-let boton8 =  document.getElementById("boton8")
-let boton9 =  document.getElementById("boton9")
-let boton0 =  document.getElementById("boton0")
-
 let botonIgual =  document.getElementById("botonigual")
-
-let suma =  document.getElementById("botonsuma")
-let resta =  document.getElementById("botonresta")
-let mul =  document.getElementById("botonmul")
-let div =  document.getElementById("botondiv")
 
 let borrar =  document.getElementById("botonborrar")
 
 let display =  document.getElementById("display")
 
+let displayOperaciones =  document.getElementById("operaciones")
+
+let concat = false;
+let igualPresionado = false;
+let operaciones = "";
 let operando1 = ""
 let numerosEnDisplay = ""
 let modo = ""
 
+let botonesTeclado = document.getElementsByClassName("botonTeclado")
 
-let borrarDisplay = false;
-
-const operar = (num1, num2, operador) => {
-    switch(operador){
-        case "suma": 
-            return num1 + num2;
-        case "resta": 
-            return num1 - num2;
-        case "mul": 
-            return num1 * num2;
-        case "div": 
-            if(num2 == 0){
-                return "ERR"
-            }
-            return num1 / num2;
-    }
+for(let btn of botonesTeclado){
+    btn.addEventListener("click", ()=>{
+        cargarDisplay(btn.value)
+        operaciones += btn.value;
+        displayOperaciones.innerText = operaciones;
+    })
 }
 
-const cargarDisplay = (value) => {
-    if(borrarDisplay){
-        if(operando1==""){
-            operando1 = numerosEnDisplay
+let botonesOperaciones = document.getElementsByClassName("botonOperacion")
+
+for(let btn of botonesOperaciones){
+    btn.addEventListener("click", ()=>{
+        if(igualPresionado){
+            concat = true;
         }
-        operando1 = numerosEnDisplay
-        numerosEnDisplay = value
-        borrarDisplay = false
-    } else {
-        numerosEnDisplay += value
-    }
-    display.innerText = numerosEnDisplay
+        else if(!concat){
+            concat = true;
+            operando1 = numerosEnDisplay;
+        } else {
+            let resultado = operar(Number(operando1), Number(numerosEnDisplay), modo)
+            console.log("resultado = " + resultado);
+            operando1 = resultado
+            if(resultado == "ERR"){
+                operando1 = ""
+                numerosEnDisplay = ""
+                modo = ""
+            }
+        }
+        modo = btn.innerText;
+        borrarDisplay = true
+        operaciones += modo
+        displayOperaciones.innerText = operaciones;
+    })
 }
 
-const calcularResultado = () => {
-    console.log("operando1", operando1);
-    console.log("numerosEnDisplay", numerosEnDisplay);
-
-    let resultado = operar(Number(operando1), Number(numerosEnDisplay), modo)
-
-    display.innerText = resultado
-    acumulado = true;
-    operando1 = resultado
-    borrarDisplay = true;
-    if(resultado == "ERR"){
-        operando1 = ""
-        numerosEnDisplay = ""
-        modo = ""
-    }
-}
-
-boton1.addEventListener("click", ()=>{
-        cargarDisplay(boton1.value)
-})
-
-boton2.addEventListener("click", ()=>{
-    cargarDisplay(boton2.value)
-})
-
-boton3.addEventListener("click", ()=>{
-    cargarDisplay(boton3.value)
-})
-
-boton4.addEventListener("click", ()=>{
-    cargarDisplay(boton4.value)
-})
-
-boton5.addEventListener("click", ()=>{
-    cargarDisplay(boton5.value)
-})
-
-boton6.addEventListener("click", ()=>{
-    cargarDisplay(boton6.value)
-})
-
-boton7.addEventListener("click", ()=>{
-    cargarDisplay(boton7.value)
-})
-
-boton8.addEventListener("click", ()=>{
-    cargarDisplay(boton8.value)
-})
-
-boton9.addEventListener("click", ()=>{
-    cargarDisplay(boton9.value)
-})
-
-boton0.addEventListener("click", ()=>{
-    cargarDisplay(boton0.value)
-})
 
 borrar.addEventListener("click", ()=>{
+    concat = false;
+    igualPresionado = false;
     operando1 = ""
     numerosEnDisplay = ""
     modo = ""
@@ -123,43 +62,52 @@ borrar.addEventListener("click", ()=>{
 })
 
 botonIgual.addEventListener("click", ()=>{
-    if(modo != ""){
-        calcularResultado()
-    }
-})
-
-
-suma.addEventListener("click", ()=>{
-    modo = "suma"
-        if(operando1 != ""){
-            calcularResultado()
+    console.log(concat);
+    if(concat){
+        let resultado = operar(Number(operando1), Number(numerosEnDisplay), modo)
+        display.innerText = resultado
+        acumulado = true;
+        operando1 = resultado
+        borrarDisplay = true;
+        if(resultado == "ERR"){
+            operando1 = ""
+            numerosEnDisplay = ""
+            modo = ""
         }
-    borrarDisplay = true
-})
-
-resta.addEventListener("click", ()=>{
-    modo = "resta"
-    if(operando1 != ""){
-        calcularResultado()
+        concat = false;
+        igualPresionado = true;
     }
-    borrarDisplay = true
 })
 
-mul.addEventListener("click", ()=>{
-    modo = "mul"
-    if(operando1 != ""){
-        calcularResultado()
+
+
+let borrarDisplay = false;
+
+const operar = (num1, num2, operador) => {
+    switch(operador){
+        case "+": 
+            return num1 + num2;
+        case "-": 
+            return num1 - num2;
+        case "x": 
+            return num1 * num2;
+        case "/": 
+            if(num2 == 0){
+                return "ERR"
+            }
+            return num1 / num2;
+        default:
+            console.log('Operacion no permitida, espere la siguiente actualización!');
     }
-    borrarDisplay = true
-})
+}
 
-div.addEventListener("click", ()=>{
-    modo = "div"
-    if(operando1 != ""){
-        calcularResultado()
+const cargarDisplay = (value) => {
+    if(borrarDisplay){
+        numerosEnDisplay = value
+        borrarDisplay = false
+    } else {
+        numerosEnDisplay += value
     }
-    borrarDisplay = true
-})
-
-
+    display.innerText = numerosEnDisplay
+}
 

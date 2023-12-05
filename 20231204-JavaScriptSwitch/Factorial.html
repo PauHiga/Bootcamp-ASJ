@@ -13,7 +13,7 @@
 
         while(true){
             input = prompt ("ingrese el numero");
-            if(isNaN((input)) || input <=0){
+            if(isNaN((input)) || input <0){
                 alert("Ingrese un número válido")
             }
             else{
@@ -22,10 +22,15 @@
         }
         
         let factorial = 1;
-        for(i = 1; i<=input; i++){
-            factorial = factorial * i;
+        if (input == 0){
+            factorial = 0;
+        } else{
+            for(let i = 1; i<=input; i++){
+                factorial = factorial * i;  // O bien factorial *= i;
+            }
         }
         alert(`Factorial: ${factorial}`)
+
 
     </script>
 </body>

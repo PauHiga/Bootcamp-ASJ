@@ -11,6 +11,14 @@
     <script>
         let input;
 
+        const estrellas = (numero) => {
+            let estrellas = "*"
+            for(i = 1; i<=numero; i++){
+                estrellas += "*"
+            }
+            return estrellas
+        }
+
         while(true){
             input = prompt ("ingrese el numero");
             if(isNaN((input)) || input <0){
@@ -20,36 +28,13 @@
                 break;
             }
         }
-        
-        let i, j;
-        for(i=1, j=10; i<=10; i++, j--){
-            console.log(i);
-            console.log(j);
-        }
-
 
         for(let i=1; i<=input;i++){
-            let estrellas = "";
-            for(j=1; j<=i; j++){
-                estrellas += "*";
-            }
-            console.log(estrellas);
+            console.log(estrellas(i));
         }
 
-// O bien:
-
-        // let estrellas = ""; 
-        // for(let i=1; i<=input;i++){
-        //     estrellas += "*";
-        //     console.log(estrellas);
-        // }
-
         for(let i=input-1; i>=1;i--){
-            estrellas = "";
-            for(j=1; j<=i; j++){
-                estrellas += "*";
-            }
-            console.log(estrellas);
+            console.log(estrellas(i));
         }
 
 

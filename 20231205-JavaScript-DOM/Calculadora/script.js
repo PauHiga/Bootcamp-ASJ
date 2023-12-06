@@ -6,14 +6,46 @@ let display =  document.getElementById("display")
 
 let displayOperaciones =  document.getElementById("operaciones")
 
+let botonesTeclado = document.getElementsByClassName("botonTeclado")
+
+let botonesOperaciones = document.getElementsByClassName("botonOperacion")
+
 let concat = false;
 let igualPresionado = false;
 let operaciones = "";
-let operando1 = ""
-let numerosEnDisplay = ""
-let modo = ""
+let operando1 = "";
+let numerosEnDisplay = "";
+let modo = "";
+let borrarDisplay = false;
 
-let botonesTeclado = document.getElementsByClassName("botonTeclado")
+const operar = (num1, num2, operador) => {
+    switch(operador){
+        case "+": 
+            return num1 + num2;
+        case "-": 
+            return num1 - num2;
+        case "x": 
+            return num1 * num2;
+        case "/": 
+            if(num2 == 0){
+                return "ERR"
+            }
+            return num1 / num2;
+        default:
+            console.log('Operacion no permitida, espere la siguiente actualización!');
+    }
+}
+
+const cargarDisplay = (value) => {
+    if(borrarDisplay){
+        numerosEnDisplay = value
+        borrarDisplay = false
+    } else {
+        numerosEnDisplay += value
+    }
+    display.innerText = numerosEnDisplay
+}
+
 
 for(let btn of botonesTeclado){
     btn.addEventListener("click", ()=>{
@@ -22,8 +54,6 @@ for(let btn of botonesTeclado){
         displayOperaciones.innerText = operaciones;
     })
 }
-
-let botonesOperaciones = document.getElementsByClassName("botonOperacion")
 
 for(let btn of botonesOperaciones){
     btn.addEventListener("click", ()=>{
@@ -79,35 +109,4 @@ botonIgual.addEventListener("click", ()=>{
     }
 })
 
-
-
-let borrarDisplay = false;
-
-const operar = (num1, num2, operador) => {
-    switch(operador){
-        case "+": 
-            return num1 + num2;
-        case "-": 
-            return num1 - num2;
-        case "x": 
-            return num1 * num2;
-        case "/": 
-            if(num2 == 0){
-                return "ERR"
-            }
-            return num1 / num2;
-        default:
-            console.log('Operacion no permitida, espere la siguiente actualización!');
-    }
-}
-
-const cargarDisplay = (value) => {
-    if(borrarDisplay){
-        numerosEnDisplay = value
-        borrarDisplay = false
-    } else {
-        numerosEnDisplay += value
-    }
-    display.innerText = numerosEnDisplay
-}
 

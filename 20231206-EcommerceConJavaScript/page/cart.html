@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Los cupcakes más alegres y deliciosos para regalar y regalarse">
+        <title>Cupcake Store</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <header>
+            <div class="header-top">
+                <a href="../index.html">
+                    <h1>Cupcake Store</h1>
+                </a>
+                <nav>
+                    <a href="../index.html">Home</a>
+                    <a href="">Shop</a>
+                    <select name="combos" id="combos">
+                        <option selected hidden>Combos</option>
+                        <option value="1">Arcoiris</option>
+                        <option value="2">Otoño</option>
+                        <option value="3">Feliz cumpleaños</option>
+                    </select>
+                    <a href="">Contacto</a>
+                    <a href="cart.html">Carrito</a>
+                </nav>
+            </div>
+            <div class="header-bottom">
+                <div>
+                    <a class="caps" href="../index.html"><strong>Seguir comprando</strong></a>
+                </div>
+
+                <!-- <div class="contenedorSearch">
+                    <input type="text" class="search" placeholder="Search..."><label for=""></label><button>
+                    <img src="../Images/glass.png" alt="icono lupa" class="iconoLupa">
+                </button>
+                </div> -->
+            </div>
+
+        </header>
+        <main>
+            <div id="carrito-vacio" class="pagina-vacia-con-cartel">
+                <p>El carrito está vacío!</p>
+                <p>Recorré nuestra tienda para encontrar los cupcakes más ricos</p>
+                <a href="../index.html" class="anadirCarrito">Continuar comprando</a>
+            </div>
+
+            <div id="carrito-lleno" class="contenedorCarrito">
+                <div class="productosCarrito">
+                    <div id="appendChildren"></div>
+                    <hr>
+                    <h3 id="total-compra"></h3>
+                    <button class="btnConfirmarCompra">Comprar</button>
+                </div>
+    
+                <div>
+                    <div class="totalCarrito">
+                        <ul id="resumenCarrito">
+                        </ul>
+                        <hr>
+                        <p id="total-resumen">Total: - </p>
+                        <button class="btnConfirmarCompra">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <script src="../js/scriptCart.js"></script>
+    </body>
+</html>

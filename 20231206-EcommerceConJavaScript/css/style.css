@@ -1,0 +1,296 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Hedvig Letters Sans', sans-serif;
+    --darkGrey: rgb(43, 43, 43);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    margin: 0.2em 0;
+}
+.caps{
+    text-transform: uppercase;
+}
+
+header{
+    min-width: 750px;
+    width:80vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-top{
+    height: 3em;
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+}
+
+.header-top h1 {
+    font-weight: 400;
+}
+
+.header-top a {
+    font-weight: 600;
+    margin-right: 1em ;
+}
+
+.disabledItemNavBar {
+    background-color: rgb(216, 216, 216);
+    pointer-events: none;
+    color: grey;   
+}
+
+.selectedItemPageNav{
+    background-color: rgb(69, 187, 187);
+    pointer-events: none;
+    color: white;    
+}
+
+.selectedItemNavBar {
+    color: rgb(69, 187, 187);
+    pointer-events: none;
+    cursor: default;
+}
+
+
+#combos{
+    font-weight: 600;
+    margin-right: 1em;
+    border: none;
+    font-size: inherit;
+    width: 100px;
+}
+
+.header-bottom{
+    height: 5em;
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+}
+
+.contenedorSearch{
+    display: flex;
+    align-items: center;
+}
+
+.contenedorSearch button {
+    background-color: black;
+    border: 2px solid black;
+}
+
+.search{
+    padding: 0.3em 1em;
+    font-family: 'Hedvig Letters Sans', sans-serif;
+    font-weight: 400;
+    font-size: medium;
+    width: 120px;
+}
+
+.searchYPrecios{
+    display: flex;
+}
+
+.iconoLupa{
+    height:2em;
+}
+
+#priceList{
+    margin-left: 1em;
+    padding: 0.5em 1em;
+    font-family: 'Hedvig Letters Sans', sans-serif;
+    font-weight: 400;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    font-size: small;
+}
+
+.page-nav{
+    min-width: 300px;
+    display: flex;
+}
+
+.page-nav a{
+    padding: 0.5em 1em;
+    margin: 0;
+    border: 1px solid rgb(216, 216, 216);
+}
+
+main {
+    min-width: 700px;
+}
+
+.display-cards{
+    width:80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    height: auto;
+    width: 12em;
+    border: 1px solid rgb(216, 216, 216);
+    padding: 1em;
+    margin: 1em;
+}
+
+.card h2{
+    margin:0;
+    color: rgb(69, 187, 187);
+    font-size: medium;
+    font-weight: 800;
+}
+
+.card p{
+    font-size: medium;
+}
+
+.presentacionProducto{
+    width:80vw;
+    display: flex;
+    justify-content: space-between;  
+    padding-top: 1em;
+}
+
+.presentacionProducto img {
+    max-height: 465px;
+}
+
+.descripcionProducto{
+    padding: 0 1.5em;
+    width: 40%;
+}
+
+.descripcionProducto h2 {
+    font-weight: 400;
+    font-size: xx-large;
+}
+
+.descripcionProducto h3 {
+    font-weight: 400;
+    font-size: large;
+}
+
+.descripcionProducto p{
+    font-size: medium;
+    color: grey;
+}
+
+hr {
+    margin: 1em 0;
+}
+
+.descripcionProducto input {
+    padding: 0.1em 1em;
+    width: 1em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+.selectorCantidad{
+    padding: 1em 0;
+}
+
+.selectorCantidad input {
+    margin: 0 0.5em;
+}
+
+.botonCambiarCantidad{
+    border-radius: 25px;
+    background-color: rgb(233, 140, 160);
+    border: none;
+    color: white;
+    width: 1.2em;
+    height: 1.2em;
+    font-size: large;
+}
+.inputCantidad{
+    text-align: center
+}
+
+.anadirCarrito{
+    background-color: rgb(233, 140, 160);
+    border: none;
+    color: white;
+    font-size: large;
+    padding: 0.5em 1em;
+}
+
+.contenedorCarrito{
+    width: 80vw;
+    display: flex;
+}
+
+.productosCarrito{
+    display: flex;
+    flex-direction: column;
+    width:70%;
+}
+
+.itemCarrito{
+    display: flex;
+}
+
+.itemCarrito img{
+    width:10em;
+}
+
+.itemCarritoDescripcion{
+    padding: 1em;
+}
+
+.totalCarrito{
+    background-color: rgb(250, 218, 223);
+    padding: 1em;
+    margin-left: 1em;
+}
+
+.totalCarrito li{
+    margin: 1em 0;
+}
+
+.btnConfirmarCompra{
+    margin-top: 1em;
+    background-color: rgb(233, 140, 160);
+    border: none;
+    color: white;
+    font-size: large;
+    padding: 0.5em 1em;
+}
+
+.pagina-vacia-con-cartel{
+    height:50vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pagina-vacia-con-cartel p{
+    margin-bottom:1em;
+}

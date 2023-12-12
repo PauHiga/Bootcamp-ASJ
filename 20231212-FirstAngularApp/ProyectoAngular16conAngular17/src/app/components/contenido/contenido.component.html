@@ -1,0 +1,13 @@
+<h2>{{titulo | uppercase }}</h2>
+
+<button class="btn btn-secondary " (click)="generarAleatorio()">Generar número aleatorio</button>
+<button (click)="RestarUno()">Disminuír 1</button>
+<button (click)="SumarUno()">Aumentar 1</button>
+
+<h3>{{num}}</h3>
+
+<h4 *ngIf="num >5">Solo se ve si el número es mayor a 5</h4>
+
+<ul>
+    <li *ngFor="let compra of compras">{{compra}}</li>
+</ul>

@@ -24,3 +24,5 @@ btnEnviar.addEventListener("click", ()=>{
     cargarCiudad(input)
 })
 
+
+

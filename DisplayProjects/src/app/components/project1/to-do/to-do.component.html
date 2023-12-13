@@ -3,6 +3,9 @@
     <input placeholder="Write the task" class="mb-1 mt-4" type="text" [(ngModel)]="newToDoItem" (keyup.enter)="addToList()">
     <button class="btn btn-secondary my-3" (click)="addToList()">Add to list</button>
 
+    <button (click)="displayCompleted()">Display Completed</button>
+    <button (click)="displayNotCompleted()">Display Not Completed</button>
+    <button (click)="displayAll()">Display All</button>
     <ul class="mt-2">
         
         <li *ngFor="let item of displayList">

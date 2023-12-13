@@ -12,8 +12,8 @@ export class ToDoComponent {
   newToDoItem = "";
   newDate = "";
   taskId = 1;
-  displayList = [{taskId: 0, task:"water plants", date:"Mon Dec 11 2023"}, {taskId: 1, task:"buy eggs", date:"Wed Dec 13 2023"}];
-  toDoList = [{taskId: 0, task:"water plants", date:"Mon Dec 11 2023"}, {taskId: 1, task:"buy eggs", date:"Wed Dec 13 2023"}];
+  toDoList = [{taskId: 0, task:"water plants", date:"Mon Dec 11 2023", completed:true, deleted:false}, {taskId: 1, task:"buy eggs", date:"Wed Dec 13 2023", completed:false, deleted:false}];
+  displayList = this.toDoList.filter(item=>item.deleted==false)
   isCompleted = false;
 
   //Add item to the list 
@@ -24,7 +24,7 @@ export class ToDoComponent {
       this.newDate = currentDate.toDateString()
       this.taskId++;
 
-      const newEntry = {taskId: this.taskId, task:this.newToDoItem, date: this.newDate}
+      const newEntry = {taskId: this.taskId, task:this.newToDoItem, date: this.newDate, completed:false, deleted:false}
 
       this.toDoList.push(newEntry);
 
@@ -39,7 +39,16 @@ export class ToDoComponent {
 
   //remove items from the list
   removeItems(id:number){
-    this.toDoList = this.toDoList.filter(item => item.taskId != id)
+    this.toDoList = this.toDoList.map(item => item.taskId == id? {...item, item[deleted]=true} : item)
   }
 
+  displayCompleted(){
+    this.displayList = this.toDoList.filter(item => item.completed == true && item.deleted==false)
+  }
+  displayNotCompleted(){
+    this.displayList = this.toDoList.filter(item => item.completed != true && item.deleted==false)
+  }
+  displayAll(){
+    this.displayList = this.toDoList.filter(item=>item.deleted==false)
+  }
 }

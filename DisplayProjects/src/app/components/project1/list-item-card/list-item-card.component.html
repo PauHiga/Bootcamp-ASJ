@@ -1,0 +1,14 @@
+<!-- <div class="row my-4 border border-info rounded p-2"> -->
+<div [ngClass]="(isCompleted)?'row my-4 border border-success rounded p-2':'row my-4 border border-info rounded p-2'">
+    <div class="col-sm-6 d-flex align-items-center">
+        <p class="align-bottom" [ngClass]="(isCompleted)?'text-decoration-line-through':''">{{task}}</p>
+
+    </div>
+    <div class="col-sm-3 d-flex align-items-center">
+        <p>{{taskDate}}</p>
+    </div>
+    <div class="col-sm-3 d-flex flex-column ">
+        <button class="btn btn-secondary m-1" (click)="markAsCompleted()">Mark as completed</button>
+        <button class="btn btn-secondary m-1" (click)="deleteItem()">Delete task</button>
+    </div>
+</div>

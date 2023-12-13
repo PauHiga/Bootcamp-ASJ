@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  selectedOptionPadre = 'Cats';
-
-  addItem(newItem: string) {
-    this.selectedOptionPadre = newItem;
-  }
+  title = 'DisplayProjects';
 }

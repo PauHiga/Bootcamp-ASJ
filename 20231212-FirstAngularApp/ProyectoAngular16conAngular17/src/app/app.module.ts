@@ -3,22 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MiComponenteComponent } from './components/mi-componente/mi-componente.component';
-import { ListaComponent } from './components/lista/lista.component';
+import { mainComponent } from './components/main/main.component';
 import { ContenidoComponent } from './components/contenido/contenido.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { PhotosComponent } from './components/photos/photos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MiComponenteComponent,
-    ListaComponent,
+    mainComponent,
     ContenidoComponent,
     HeaderComponent,
-    FooterComponent,
-    PhotosComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,

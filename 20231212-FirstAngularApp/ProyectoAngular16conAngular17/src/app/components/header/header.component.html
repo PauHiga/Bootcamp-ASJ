@@ -14,15 +14,13 @@
                 Categories
             </a>
             <ul class="dropdown-menu">
-                <li><button class="dropdown-item" (click)="catsPictures()">Cats</button></li>
-                <li><button class="dropdown-item" (click)="dogsPictures()">Dogs</button></li>
+                <li><button (click)="setPicture('Cats')" class="dropdown-item">Cats</button></li>
+                <li><button (click)="setPicture('Dogs')" class="dropdown-item">Dogs</button></li>
+                <!-- <li><button class="dropdown-item" (click)="catsPictures()">Cats</button></li>
+                <li><button class="dropdown-item" (click)="dogsPictures()">Dogs</button></li> -->
             </ul>
             </li>
         </ul>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
         </div>
     </div>
 </nav>

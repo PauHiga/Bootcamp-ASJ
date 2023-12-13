@@ -1,0 +1,12 @@
+<div class="container d-flex flex-column m-5 w-75 h-75 ">
+    <h1>ToDo list</h1>
+    <input placeholder="Write the task" class="mb-1 mt-4" type="text" [(ngModel)]="newToDoItem" (keyup.enter)="addToList()">
+    <button class="btn btn-secondary my-3" (click)="addToList()">Add to list</button>
+
+    <ul class="mt-2">
+        
+        <li *ngFor="let item of displayList">
+            <app-list-item-card [taskId]="item.taskId" [taskDate]="item.date" [task]="item.task" (deleteItemEvent)="removeItems($event)"></app-list-item-card>
+        </li>
+    </ul> 
+</div>

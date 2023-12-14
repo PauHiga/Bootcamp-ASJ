@@ -24,6 +24,7 @@ export class FormDisplaySimpsonsComponent {
   ]
 
   addChar(){
+    //Tambien podría evitar el ingreso del formulario vacío poniendo el botón en disabled si no hay nada en los campos
     if(this.charName != "" && this.charImg != "" && this.charOccupation != ""){
       const newCharacter:Character = {
         image: this.charImg,

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="container p-2">
+                <div class="row p-3">
+                    <label for="inputName">Character Name</label>
+                    <input [(ngModel)]="charName" type="text" id="inputName">
+                </div>
+                <div class="row p-3">
+                    <label for="inputImg">Image URL</label>
+                    <input [(ngModel)]="charImg" type="text" id="inputImg">
+                </div>
+                <div class="row p-3">
+                    <label for="inputOccupation">Occupation</label>
+                    <input [(ngModel)]="charOccupation" type="text" id="inputOccupation">
+                </div>
+                <button (click)="addChar()" class="btn btn-primary m-4">Añadir</button>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="container p-5">
+                <div class="row" *ngFor="let character of characters; let i = index" [ngClass]="(i%2==0)?'bg-light' : ''">
+                    <div class="col-4 p-2 object-fit-contain d-flex justify-content-center"><img src="{{character.image}}" alt="{{character.name}}"></div>
+                    <!-- <div class="col-4 p-2 overflow-hidden d-flex justify-content-center"><img src="{{character.image}}" alt="{{character.name}}"></div> -->
+                    <div class="col-4 p-2 d-flex align-items-center">{{character.name}}</div>
+                    <div class="col-4 p-2 d-flex align-items-center">{{character.occupation}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

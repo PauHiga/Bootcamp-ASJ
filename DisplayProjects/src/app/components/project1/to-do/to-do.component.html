@@ -5,6 +5,32 @@
 
     <button (click)="displayCompleted()">Display Completed</button>
     <button (click)="displayNotCompleted()">Display Not Completed</button>
+    <button (click)="displayDeleted()">Display Deleted</button>
+    <button (click)="displayAll()">Display All</button>
+    <ul class="mt-2">
+        
+        <li *ngFor="let item of displayList" [ngClass]="(isCompleted)?'row my-4 border border-success rounded p-2':'row my-4 border border-info rounded p-2'">
+            <div class="col-sm-6 d-flex align-items-center">
+                <p class="align-bottom" [ngClass]="(item.completed)?'text-decoration-line-through':''">{{item.task}}</p>
+        
+            </div>
+            <div class="col-sm-3 d-flex align-items-center">
+                <p>{{item.date}}</p>
+            </div>
+            <div class="col-sm-3 d-flex flex-column ">
+                <button class="btn btn-secondary m-1" (click)="markAsCompleted(item.taskId)">Mark as completed</button>
+                <button class="btn btn-secondary m-1" (click)="deleteItem(item.taskId)">Delete task</button>
+            </div>
+        </li>
+    </ul> 
+</div>
+<!-- <div class="container d-flex flex-column m-5 w-75 h-75 ">
+    <h1>ToDo list</h1>
+    <input placeholder="Write the task" class="mb-1 mt-4" type="text" [(ngModel)]="newToDoItem" (keyup.enter)="addToList()">
+    <button class="btn btn-secondary my-3" (click)="addToList()">Add to list</button>
+
+    <button (click)="displayCompleted()">Display Completed</button>
+    <button (click)="displayNotCompleted()">Display Not Completed</button>
     <button (click)="displayAll()">Display All</button>
     <ul class="mt-2">
         
@@ -12,4 +38,4 @@
             <app-list-item-card [taskId]="item.taskId" [taskDate]="item.date" [task]="item.task" (deleteItemEvent)="removeItems($event)"></app-list-item-card>
         </li>
     </ul> 
-</div>
+</div> -->

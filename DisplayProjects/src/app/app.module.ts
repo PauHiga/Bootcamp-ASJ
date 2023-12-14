@@ -12,6 +12,7 @@ import { FooterComponent } from './components/display/footer/footer.component';
 import { ToDoComponent } from './components/project1/to-do/to-do.component';
 import { ListItemCardComponent } from './components/project1/list-item-card/list-item-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormDisplaySimpsonsComponent } from './components/project2/form-display-simpsons/form-display-simpsons.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainComponent,
     FooterComponent,
     ToDoComponent,
-    ListItemCardComponent
+    ListItemCardComponent,
+    FormDisplaySimpsonsComponent
   ],
   imports: [
     BrowserModule,

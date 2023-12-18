@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { ToDoComponent } from './components/project1/to-do/to-do.component';
 import { ListItemCardComponent } from './components/project1/list-item-card/list-item-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormDisplaySimpsonsComponent } from './components/project2/form-display-simpsons/form-display-simpsons.component';
+import { CharactersListComponent } from './components/project3/characters-list/characters-list.component';
+import { CharacterInfoComponent } from './components/project3/character-info/character-info.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { FormDisplaySimpsonsComponent } from './components/project2/form-display
     FooterComponent,
     ToDoComponent,
     ListItemCardComponent,
-    FormDisplaySimpsonsComponent
+    FormDisplaySimpsonsComponent,
+    CharactersListComponent,
+    CharacterInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import { FormDisplaySimpsonsComponent } from './components/project2/form-display
     NgbModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatIconModule 
+    MatIconModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

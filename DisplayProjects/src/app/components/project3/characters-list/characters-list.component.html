@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Characters</h2>
+    
+    <div class="container">
+        <tbody class="m-5">
+            <tr *ngFor="let character of data.results" [routerLink]="['character-detail', character.id]">                
+                <td>
+                    <img src="{{character.image}}" alt="" width="100px" class="m-2">
+                </td>
+                <td>
+                    {{character.name}}
+                </td>
+            </tr>
+        </tbody>
+    </div>
+</div>

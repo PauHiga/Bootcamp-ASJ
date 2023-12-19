@@ -1,0 +1,49 @@
+<div class="col-md-5">
+    <h3>Nuevo Usuario</h3>    
+
+<form #miForm="ngForm" (ngSubmit)="create(miForm)">
+<input type="hidden" name="id" [(ngModel)]="userService.datosUsuario.id">
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+    <input 
+        type="text" 
+        class="form-control" 
+        id="exampleFormControlInput1" 
+        placeholder="Nombre" 
+        name="name" 
+        [(ngModel)]="userService.datosUsuario.name" 
+        required 
+        minlength="4"
+        #name="ngModel"
+    />
+</div>
+<div *ngIf="name.errors?.['minlength']" class="col-auto">
+    <span id="passwordHelpInLine" class="form-text text-danger">
+        Debe tener al menos 4 caracteres
+    </span>
+</div>
+<div *ngIf="name.errors?.['required']" class="col-auto">
+    <span id="passwordHelpInLine" class="form-text text-danger">
+        Este campo es requerido
+    </span>
+</div>
+<div class="mb-3">
+    <label for="exampleFormControlInput2" class="form-label">Trabajo</label>
+    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Trabajo" name="job" [(ngModel)]="userService.datosUsuario.job">
+</div>
+<button 
+    class="btn m-1 btn-outline-secondary" 
+    (click)="resetForm(miForm)"
+    [disabled]="!miForm.valid"
+    >Borrar formulario</button>
+<button 
+    type="submit" 
+    class="btn m-1 btn-primary"
+>Guardar</button>
+</form>
+
+<div class="alert alert-info" role="alert">
+{{mensaje}}
+</div>
+
+</div>

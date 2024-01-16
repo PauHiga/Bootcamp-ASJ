@@ -39,12 +39,33 @@ public class ArraysMatrices {
 //		Utiliza arrays auxiliares si es necesario.		
 		
 		int[] randomNumbers = new int[20];
+		int[] randomNumbersOrdered = new int[20];
+
+		int indexEven = -1;
+		int indexOdd = 20;
 		
 		for (int i = 0; i < 20; i++) {
 			randomNumbers[i] = (int) (Math.random() * 100) + 1;
 		}
 	
 		System.out.println("Array inicial: ");
+		for (int i = 0; i < 20; i++) {
+			System.out.print(randomNumbers[i] + " ");
+		}
+		System.out.println("\n");
+		
+		for (int i = 0; i < 20; i++) {
+			if(randomNumbers[i] %2 == 0) {
+				indexEven++;
+				randomNumbersOrdered[indexEven] = randomNumbers[i];
+			} else {
+				indexOdd--;
+				randomNumbersOrdered[indexOdd] = randomNumbers[i];				
+			}
+		}
+		randomNumbers = randomNumbersOrdered;
+
+		System.out.println("Array final: ");
 		for (int i = 0; i < 20; i++) {
 			System.out.print(randomNumbers[i] + " ");
 		}

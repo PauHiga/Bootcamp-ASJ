@@ -43,11 +43,10 @@ public class CifradoCesar {
 				break;
 			}
 			cifrar(userInput, cypher);
-			
 		}
+		
+		scanner.close();
 
-		
-		
 	}
 	
 	

@@ -101,6 +101,10 @@ public class funciones {
 	
 	public static double extraer(Scanner scanner, double importeActual, List<String> movimientos) {
 		System.out.println("Usted seleccionó: Extraer");
+		if(importeActual == 0) {
+			System.out.println("El monto en la cuenta es $0. No es posible extraer");
+			return importeActual;
+		}
 		double importeAExtraer;
 		while(true) {
 			System.out.println("El monto disponible es: " + importeActual);

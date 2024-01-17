@@ -25,9 +25,11 @@ public class ArraysMatrices {
 //			array15[i] = inputANumber(scanner);
 //		}
 //		
-//		for(int i = 0; i < 15; i++) {
-//			nuevoArray15[14-i] = array15[i];
+//		for(int i = 0; i < 14; i++) {
+//			nuevoArray15[i+1] = array15[i];
 //		}
+//		nuevoArray15[0] = array15[14];
+//
 //
 //		for(int i = 0; i < 15; i++) {
 //			System.out.print(nuevoArray15[i] + " ");	
@@ -74,28 +76,28 @@ public class ArraysMatrices {
 
 //		Generar una matriz de 3×3 con números aleatorios sin repetirse.
 
-//		Set<Integer> uniqueNumbers = new HashSet<Integer>();
-//
-//		int[][] matriz33 = new int[3][3];
-//
-//		for (int i = 0; i < 3; i++) {
-//			for (int j = 0; j < 3; j++) {
-//				int randomNumber;
-//				do {
-//					randomNumber = random.nextInt(9) + 1;
-//				} while (uniqueNumbers.contains(randomNumber));
-//				uniqueNumbers.add(randomNumber);
-//				matriz33[i][j] = randomNumber;
-//			}
-//		}
-//
-//		for (int i = 0; i < 3; i++) {
-//			for (int j = 0; j < 3; j++) {
-//				System.out.print(matriz33[i][j]);
-//				System.out.print(" ");
-//			}
-//			System.out.println(" ");
-//		}
+		Set<Integer> uniqueNumbers = new HashSet<Integer>();
+
+		int[][] matriz33 = new int[3][3];
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				int randomNumber;
+				do {
+					randomNumber = random.nextInt(9) + 1;
+				} while (uniqueNumbers.contains(randomNumber));
+				uniqueNumbers.add(randomNumber);
+				matriz33[i][j] = randomNumber;
+			}
+		}
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				System.out.print(matriz33[i][j]);
+				System.out.print(" ");
+			}
+			System.out.println(" ");
+		}
 
 //Dada la matriz anterior, realizar la suma de una columna o fila aleatoria (preguntar al usuario que desea sumar, si una fila o una columna, y cual de ellas).
 //Extra: mostrar el resultado al final de la fila/columna correspondiente

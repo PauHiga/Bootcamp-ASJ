@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post</title>
+</head>
+<body>
+
+  <h1>Post</h1>
+
+  <form id="formularioNotas">
+	<label for="id">Id:</label>
+    <input type="text" id="id" name="id" required>
+
+    <br>
+	  
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <br>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido" required>
+
+    <br>
+
+    <label for="nota">Nota:</label>
+    <input type="number" id="nota" name="nota" min="0" max="10" required>
+
+    <br>
+
+    <input type="button" value="Enviar" onclick="enviarDatos()">
+  </form>
+  
+  <button onclick="getAlumnos()">GET</button>
+
+  <script>
+    function enviarDatos() {
+	  let id = document.getElementById('id').value;
+      let nombre = document.getElementById('nombre').value;
+      let apellido = document.getElementById('apellido').value;
+      let nota = document.getElementById('nota').value;
+
+      let data = {
+		id:id,
+        nombre: nombre,
+        apellido: apellido,
+        nota: nota
+      };
+      
+
+      fetch('http://localhost:8080/alumnos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+		getAlumnos();
+        console.log('Respuesta de la API:', data);
+      })
+      .catch(error => {
+        console.error('Error al enviar la solicitud:', error);
+      });
+    }
+    	
+    let alumnosList = [];
+    function getAlumnos(){
+fetch('http://localhost:8080/alumnos', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+})
+.then(data => {
+    console.log('Respuesta de la API (GET):', data);
+    alumnosList=data;
+    console.log(alumnosList)
+        createTable();
+})
+.catch(error => {
+    console.error('Error al enviar la solicitud (GET):', error);
+});
+    }
+    function createTable() {
+		eraseTable();
+        var body = document.body;
+        var table = document.createElement('table');
+        table.setAttribute('id', 'alumnos');
+        var headerRow = table.insertRow();
+        headerRow.innerHTML = "<th>ID</th><th>Nombre</th><th>Apellido</th><th>Nota</th>";
+
+        for (var i = 0; i < alumnosList.length; i++) {
+            var alumno = alumnosList[i];
+            var row = table.insertRow();
+            var cell1 = row.insertCell(0);
+            cell1.innerHTML = alumno.id;
+            var cell2 = row.insertCell(1);
+            cell2.innerHTML = alumno.nombre;
+            var cell3 = row.insertCell(2);
+            cell3.innerHTML = alumno.apellido;
+            var cell4 = row.insertCell(3);
+            cell4.innerHTML = alumno.nota;
+			var cell5 = row.insertCell(4);
+            cell5.innerHTML = '<button onclick="editAlumno(' + i + ')">Editar</button>';
+            var cell6 = row.insertCell(5);
+            cell6.innerHTML = '<button onclick="removeAlumno(' + i + ')">Eliminar</button>';
+        }
+        body.appendChild(table);
+    }
+    function eraseTable() {
+        var table = document.getElementById('alumnos');
+        if (table) {
+            table.remove();
+        }
+    }
+    function editAlumno(index) {
+        var editedAlumno = alumnosList[index];
+
+        var editedNombre = prompt('Editar Nombre:', editedAlumno.nombre);
+        var editedApellido = prompt('Editar Apellido:', editedAlumno.apellido);
+        var editedNota = parseFloat(prompt('Editar Nota:', editedAlumno.nota));
+
+        editedAlumno.nombre = editedNombre;
+        editedAlumno.apellido = editedApellido;
+        editedAlumno.nota = editedNota;
+
+        updateAlumnoOnServer(editedAlumno);
+
+        createTable();
+    }
+    
+        function removeAlumno(index) {
+		var removedAlumno = alumnosList[index];
+		
+		fetch('http://localhost:8080/alumnos/' + removedAlumno.id, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+        getAlumnos();
+        })
+        .catch(error => {
+            console.error('Error deleting alumno on the server:', error);
+        });
+    }
+    
+        function updateAlumnoOnServer(editedAlumno) {
+        fetch('http://localhost:8080/alumnos/' + editedAlumno.id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(editedAlumno)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Alumno updated successfully:', data);
+        })
+        .catch(error => {
+            console.error('Error updating alumno on the server:', error);
+        });
+    }
+  </script>
+
+</body>
+</html>

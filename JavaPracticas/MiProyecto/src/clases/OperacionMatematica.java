@@ -23,4 +23,18 @@ public class OperacionMatematica {
 	public double suma() {
 		return this.num1 + this.num2;
 	}
+	public double resta() {
+		return this.num1 - this.num2;
+	}
+	public double mul() {
+		return this.num1 * this.num2;
+	}
+	public double div() {
+		if(this.num2 != 0) {
+			return this.num1 / this.num2;			
+		} 
+		else {
+			throw new ArithmeticException("No se puede realizar la división porque el denominador no puede ser cero");
+		}
+	}
 }

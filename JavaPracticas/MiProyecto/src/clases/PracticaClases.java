@@ -11,12 +11,15 @@ public class PracticaClases {
 		
 //		1) Cree una clase que me permita realizar una operación matemática de 2 números. (Crear los metodos y atributos necesarios)
 		
-//		OperacionMatematica operacionMatematica =  new OperacionMatematica();
-//		
-//		operacionMatematica.setNum1(10);
-//		operacionMatematica.setNum2(20);
-//		
-//		System.out.println(operacionMatematica.suma());
+		OperacionMatematica operacionMatematica =  new OperacionMatematica();
+		
+		operacionMatematica.setNum1(10);
+		operacionMatematica.setNum2(20);
+		
+		System.out.println(operacionMatematica.suma());
+		System.out.println(operacionMatematica.resta());
+		System.out.println(operacionMatematica.mul());
+		System.out.println(operacionMatematica.div());
 
 		
 		

@@ -76,9 +76,6 @@ fetch('http://localhost:8080/alumnos', {
     }
 })
 .then(response => {
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
     return response.json();
 })
 .then(data => {
@@ -146,9 +143,6 @@ fetch('http://localhost:8080/alumnos', {
             method: 'DELETE',
         })
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
         getAlumnos();
         })
         .catch(error => {
@@ -163,12 +157,6 @@ fetch('http://localhost:8080/alumnos', {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(editedAlumno)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
         })
         .then(data => {
             console.log('Alumno updated successfully:', data);

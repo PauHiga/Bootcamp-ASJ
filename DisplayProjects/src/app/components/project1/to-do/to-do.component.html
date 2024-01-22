@@ -3,10 +3,20 @@
     <input placeholder="Write the task" class="mb-1 mt-4" type="text" [(ngModel)]="newToDoItem" (keyup.enter)="addToList()">
     <button class="btn btn-secondary my-3" (click)="addToList()">Add to list</button>
 
-    <button (click)="displayCompleted()">Display Completed</button>
-    <button (click)="displayNotCompleted()">Display Not Completed</button>
-    <button (click)="displayDeleted()">Display Deleted</button>
-    <button (click)="displayAll()">Display All</button>
+    <div class="row">
+        <div class="col-2">
+            <button [ngClass]="(modeDisplay=='all')? 'btn-primary': 'btn-outline-primary'" class="btn" (click)="displayAll()">Display Tasks</button>
+        </div>
+        <div class="col-2">
+            <button [ngClass]="(modeDisplay=='completed')? 'btn-primary': 'btn-outline-primary'" class="btn" (click)="displayCompleted()">Items Completed</button>
+        </div>
+        <div class="col-6">
+            <button [ngClass]="(modeDisplay=='notCompleted')? 'btn-primary': 'btn-outline-primary'" class="btn" (click)="displayNotCompleted()">Items Not Completed</button>
+        </div>
+        <div class="col-2">
+            <button [ngClass]="(modeDisplay=='deleted')? 'btn-secondary': 'btn-outline-secondary'" class="btn" (click)="displayDeleted()">Display Deleted</button>
+        </div>
+    </div>
     <ul class="mt-2">
         
         <li *ngFor="let item of displayList" [ngClass]="(isCompleted)?'row my-4 border border-success rounded p-2':'row my-4 border border-info rounded p-2'">
@@ -18,8 +28,8 @@
                 <p>{{item.date}}</p>
             </div>
             <div class="col-sm-3 d-flex flex-column ">
-                <button class="btn btn-secondary m-1" (click)="markAsCompleted(item.taskId)">Mark as completed</button>
-                <button class="btn btn-secondary m-1" (click)="deleteItem(item.taskId)">Delete task</button>
+                <button class="btn btn-secondary m-1" (click)="markAsCompleted(item)">Mark as completed</button>
+                <button class="btn btn-secondary m-1" (click)="deleteItem(item)">Delete task</button>
             </div>
         </li>
     </ul> 
@@ -35,7 +45,7 @@
     <ul class="mt-2">
         
         <li *ngFor="let item of displayList">
-            <app-list-item-card [taskId]="item.taskId" [taskDate]="item.date" [task]="item.task" (deleteItemEvent)="removeItems($event)"></app-list-item-card>
+            <app-list-item-card [id]="item.id" [taskDate]="item.date" [task]="item.task" (deleteItemEvent)="removeItems($event)"></app-list-item-card>
         </li>
     </ul> 
 </div> -->
